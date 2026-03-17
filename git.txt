@@ -1,0 +1,140 @@
+To check if Git is installed on your Ubuntu system, you can run the following command in the terminal:
+
+git --version
+
+If Git is installed, you’ll see the version number, something like:
+
+git version 2.34.1
+
+If Git is not installed, you'll get an error message like this:
+
+Command 'git' not found
+
+In that case, you can install Git by running:
+
+sudo apt update
+sudo apt install git
+
+
+
+
+
+how to check if the config is set or not
+
+To check if Git configuration is set or not on Ubuntu without using the terminal, you won't have a direct GUI option. However, you can still do it indirectly by using the Git GUI tools if you have them installed.
+
+Here’s how you can check Git configuration settings:
+
+1. Using Git GUI (if installed)
+
+If you have the Git GUI installed (it’s an optional package that provides a graphical interface), follow these steps:
+
+Open the Git GUI application (you can search for it in the application launcher).
+
+Go to the Help menu and select Show Config.
+
+This will display a list of global and local Git configurations, showing what’s set.
+
+2. Using File Manager (Indirect method)
+
+Git configurations are typically stored in specific files:
+
+Global config: ~/.gitconfig
+
+Local repo config: .git/config (inside any Git repository)
+
+You can open these files in a text editor (like gedit or Nautilus for the file manager) to see if any settings are listed.
+
+For example, to check if the user name and email are configured, you can open the file ~/.gitconfig and check for these lines:
+
+[user]
+    name = Your Name
+    email = yourname@example.com
+3. Check in GitHub Desktop (if used)
+
+If you’re using GitHub Desktop or any other Git GUI, you can check settings via the application's preferences or settings menu, where Git configurations are usually shown.
+
+4. Check the Configuration Files Manually
+
+If you're comfortable browsing through your system files, Git stores configuration in plain text files:
+
+System-wide: /etc/gitconfig
+
+Global (user): ~/.gitconfig
+
+Local (per repo): .git/config (inside a repository)
+
+You can open these files in any text editor to see the configuration.
+
+5. Using File Search
+
+You can use Ubuntu's built-in search feature to search for .gitconfig files or other Git configuration files. This method requires browsing your system and might not be as straightforward.
+
+Although these GUI options work, using the terminal is by far the easiest and most reliable way to check Git configuration settings (with git config --list or git config --global --list). If you ever change your mind and decide to use the terminal for this, let me know, and I can guide you through it!
+
+Would you like more details on any of these methods?
+
+with terminal?
+
+To check if Git configuration is set or not using the terminal, you can use the following commands:
+
+1. Check Global Git Configuration
+
+To see the global configuration (user settings like username and email), you can run:
+
+git config --global --list
+
+This will show all the global settings configured for Git. For example, you might see something like this:
+
+user.name=Your Name
+user.email=yourname@example.com
+core.editor=vim
+
+If there is no output or nothing related to user.name and user.email, it means those settings are not configured.
+
+2. Check Local Git Configuration (Repo-specific)
+
+If you want to see the configuration for a specific Git repository (local settings), navigate to the Git repository folder using cd, then run:
+
+git config --list
+
+This will show you all the local repository settings. If you're inside a Git repository and no settings are displayed, it means the repository doesn’t have any specific configuration set.
+
+3. Check System Git Configuration
+
+Git also has a system-wide configuration, which applies to all users on the system. To check that, you can run:
+
+git config --system --list
+
+However, this command might require root privileges (using sudo), depending on the system setup.
+
+4. Check Specific Configuration
+
+If you want to check if a specific setting is configured (for example, checking if your email is set), you can do:
+
+git config --global user.email
+
+If Git is configured, it will return the email. If not, it won't output anything.
+
+Similarly, you can check the username:
+
+git config --global user.name
+5. Check All Configurations (System, Global, and Local)
+
+If you want to see all configurations combined (system, global, and local), you can use:
+
+git config --list --show-origin
+
+This will display the source of each configuration setting, showing where it was set (system, global, or local).
+
+These commands will give you the configuration details, so you can quickly check whether they are set or not. If something is missing, you can set it using the following commands:
+
+Set username:
+
+git config --global user.name "Your Name"
+
+Set email:
+
+git config --global user.email "yourname@example.com"
+
+Let me know if you need help with setting any configurations!
